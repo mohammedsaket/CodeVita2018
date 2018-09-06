@@ -1,0 +1,34 @@
+#code
+p=float(input())
+t=int(input())
+n1=int(input())
+b1=[]
+for _ in range(n1):
+    y, r = input().split()
+    y = float(y)
+    r = float(r)
+    a=[y,r]
+    b1.append(a)
+n2=int(input())
+b2=[]
+for _ in range(n2):
+    y,r=input().split()
+    y=float(y)
+    r=float(r)
+    a=[y,r]
+    b2.append(a)
+
+b1emi=[]
+for i in range(n1):
+    emi = (p * b1[i][1] / (1 - 1 / (1 + b1[i][1]) ** (b1[i][0] * 12)))*(12*b1[i][0])
+    b1emi.append(emi)
+    p = p - (emi * 12 * b1[1][0])
+b2emi=[]
+for j in range(n2):
+    emi = (p * b2[j][1] / (1 - 1 / (1 + b2[i][1]) ** (b2[j][0] * 12)))*(12*b2[j][0])
+    b2emi.append(emi)
+    p = p - (emi * 12 * b2[1][0])
+if(sum(b1emi)<sum(b2emi)):
+    print("bank A")
+else:
+    print("bank B")
